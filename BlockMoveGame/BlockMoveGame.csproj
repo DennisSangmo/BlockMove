@@ -89,6 +89,7 @@
     <Compile Include="Things\Cords.cs" />
     <Compile Include="Things\Directions.cs" />
     <Compile Include="Things\Player.cs" />
+    <Compile Include="Things\PointBlip.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />

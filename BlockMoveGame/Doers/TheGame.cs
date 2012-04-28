@@ -1,5 +1,4 @@
 using System.Collections.Generic;
-using System.Linq;
 using BlockMoveGame.Things;
 
 namespace BlockMoveGame.Doers {
@@ -13,6 +12,7 @@ namespace BlockMoveGame.Doers {
 
         public void Initialize(int width, int height)
         {
+            if (Initialized) return;
             Board = new Board(width, height);
             Initialized = true;
         }
@@ -28,6 +28,14 @@ namespace BlockMoveGame.Doers {
 
         public IEnumerable<Player> GetPlayers() {
             return Board.GetPlayers();
+        }
+
+        public PointBlip GetPointBlip() {
+            return Board.GetPointBlip();
+        }
+
+        public void Reset() {
+            Board.Reset();
         }
     }
 }

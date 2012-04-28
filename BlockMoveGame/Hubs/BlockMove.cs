@@ -12,6 +12,7 @@ namespace BlockMoveGame.Hubs {
 
         public IEnumerable<Player> Initialize(int width, int height) {
             TheGame.Initialize(width, height);
+            CheckPointBlip();
             return TheGame.GetPlayers();
         }
 
@@ -24,7 +25,22 @@ namespace BlockMoveGame.Hubs {
         public Player Move(string id, string direction) {
             var player = TheGame.MovePlayer(id, direction);
             if(player!= null) Clients.movePlayer(player);
+
+            CheckPointBlip();
+            
             return player;
+        }
+
+        public void Reset() {
+            TheGame.Reset();
+            CheckPointBlip();
+        }
+
+        private void CheckPointBlip()
+        {
+            var pointBlip = TheGame.GetPointBlip();
+            if (pointBlip != null)
+                Clients.updatePointBlip(pointBlip);
         }
     }
 }

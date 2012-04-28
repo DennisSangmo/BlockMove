@@ -10,4 +10,16 @@
     border: 10px solid #333;
     background-color: #ccc;
     position: relative;
+    display: inline-block;
+}
+#pointblip {
+    background-color: gold;
+    position: absolute;
+}
+#scoreboard {
+    float: left;
+    width: 150px;
+}
+.playerscoredisplay {
+    display: inline-block;
 }

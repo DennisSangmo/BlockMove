@@ -19,6 +19,7 @@ namespace CollectTests
         [TearDown]
         public void TearDown() {
             Board = null;
+            Player = null;
         }
 
         [Test]
@@ -26,7 +27,7 @@ namespace CollectTests
             Player.Cords.Y = 0;
             var player = Board.MovePlayer(Player.Id.ToString(), Directions.Up);
 
-            Assert.IsNull(player);
+            Assert.AreEqual(0, player.Cords.Y);
         }
 
         [Test]
@@ -34,7 +35,7 @@ namespace CollectTests
             Player.Cords.X = 90;
             var player = Board.MovePlayer(Player.Id.ToString(), Directions.Right);
 
-            Assert.IsNull(player);
+            Assert.AreEqual(90, player.Cords.X);
         }
 
         [Test]
@@ -42,7 +43,7 @@ namespace CollectTests
             Player.Cords.Y = 90;
             var player = Board.MovePlayer(Player.Id.ToString(), Directions.Down);
 
-            Assert.IsNull(player);
+            Assert.AreEqual(90, player.Cords.Y);
         }
 
         [Test]
@@ -50,7 +51,34 @@ namespace CollectTests
             Player.Cords.X = 0;
             var player = Board.MovePlayer(Player.Id.ToString(), Directions.Left);
 
-            Assert.IsNull(player);
+            Assert.AreEqual(0, player.Cords.X);
+        }
+
+        [Test]
+        public void Should_recieve_point() {
+            Player.Cords.X = 0;
+            Player.Cords.Y = 0;
+
+            Board.PointBlip = new PointBlip(10, new Cords { X = 10, Y = 0 });
+
+            var player = Board.MovePlayer(Player.Id.ToString(), Directions.Right);
+
+            Assert.AreEqual(1, player.Score);
+        }
+
+        [Test]
+        public void Should_generate_new_pointBlip()
+        {
+            Player.Cords.X = 0;
+            Player.Cords.Y = 0;
+
+            var pointBlip = new PointBlip(10, new Cords { X = 10, Y = 0 });
+
+            Board.PointBlip = pointBlip;
+
+            Board.MovePlayer(Player.Id.ToString(), Directions.Right);
+
+            Assert.AreNotEqual(pointBlip, Board.PointBlip);
         }
     }
 }

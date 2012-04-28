@@ -7,6 +7,7 @@ namespace BlockMoveGame.Things
         public Guid Id { get; set; }
         public string Color { get; set; }
         public int Size { get; set; }
+        public int Score { get; set; }
         public Cords Cords { get; set; }
 
         public Player(string color, int size, Cords cords) {
