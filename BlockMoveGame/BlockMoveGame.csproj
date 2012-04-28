@@ -86,6 +86,7 @@
     <Compile Include="Hubs\BlockMove.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Things\Board.cs" />
+    <Compile Include="Things\Cords.cs" />
     <Compile Include="Things\Directions.cs" />
     <Compile Include="Things\Player.cs" />
   </ItemGroup>

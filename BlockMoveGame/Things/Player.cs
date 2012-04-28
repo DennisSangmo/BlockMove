@@ -6,14 +6,14 @@ namespace BlockMoveGame.Things
     {
         public Guid Id { get; set; }
         public string Color { get; set; }
-        public int YPosition { get; set; }
-        public int XPosition { get; set; }
+        public int Size { get; set; }
+        public Cords Cords { get; set; }
 
-        public Player(string color) {
+        public Player(string color, int size, Cords cords) {
             Id = Guid.NewGuid();
             Color = color;
-            YPosition = 0;
-            XPosition = 0;
+            Size = size;
+            Cords = cords;
         }
     }
 }

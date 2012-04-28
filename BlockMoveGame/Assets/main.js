@@ -59,15 +59,18 @@ $(document).ready(function () {
     };
 
     function drawPlayer(player) {
-        var p = $("#" + player.Id);
+        if (!player)
+            return;
         
+        var p = $("#" + player.Id);
+
         if (p.length > 0) {
-            p.css("top", player.YPosition);
-            p.css("left", player.XPosition);
+            p.css("top", player.Cords.Y);
+            p.css("left", player.Cords.X);
             return;
         }
-        
-        $("<div id=\"" + player.Id + "\" class=\"player\" style=\"background-color:" + player.Color + ";top:" + player.YPosition + ";left:" + player.XPosition + ";\"></div>").appendTo(board);
+
+        $("<div id=\"" + player.Id + "\" class=\"player\" style=\"background-color:" + player.Color + ";top:" + player.YPosition + ";left:" + player.XPosition + "; width:"+player.Size+"; height:"+player.Size+";\"></div>").appendTo(board);
     }
 
     function showMessage(msg) {

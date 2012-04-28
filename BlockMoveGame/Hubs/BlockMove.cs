@@ -12,7 +12,7 @@ namespace BlockMoveGame.Hubs {
 
         public IEnumerable<Player> Initialize(int width, int height) {
             TheGame.Initialize(width, height);
-            return TheGame.Players;
+            return TheGame.GetPlayers();
         }
 
         public Player Join(string color) {
@@ -23,7 +23,7 @@ namespace BlockMoveGame.Hubs {
 
         public Player Move(string id, string direction) {
             var player = TheGame.MovePlayer(id, direction);
-            Clients.movePlayer(player);
+            if(player!= null) Clients.movePlayer(player);
             return player;
         }
     }
