@@ -1,0 +1,15 @@
+.player {
+    height: 10px;
+    width: 10px;
+    position: absolute;
+}
+.message {
+    	display: none;
+}
+#board {
+    width: 600px;
+    height: 400px;
+    border: 10px solid #333;
+    background-color: #ccc;
+    position: relative;
+}
